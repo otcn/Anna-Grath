@@ -1,4 +1,14 @@
-/* ================================ RESET ================================ */
+/* =====  h1  =============================================================== */
+
+/* -----  h2  --------------------------------------------------------------- */
+
+/* h3 */
+
+
+
+
+
+/* =====  1 Reset  ========================================================== */
 
 html, body, body div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, a,
 blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q,
@@ -6,10 +16,237 @@ samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset,
 form, input, label, legend, table, caption, tbody, tfoot, thead, tr, th, td,
 article, aside, figure, footer, header, hgroup, menu, nav, section, time, mark,
 audio, video, hr {
-		margin: 0;
-		padding: 0;
-		border: 0;
-		outline: 0;
-		text-decoration: none;
-		list-style: none;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	text-decoration: none;
+	list-style: none;
+}
+
+
+
+
+
+/* =====  2 Global Rules & Definitions  ===================================== */
+
+/* Typographie */
+
+html {
+	-webkit-text-size-adjust: 100%;
+}
+
+body {
+	font-family: 'Maria-Regular';
+	font-size: 18pt;
+
+	overflow-x: scroll;
+
+	text-rendering: optimizeLegibility;
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, span, {
+	font-size: 18pt;
+	font-weight: normal;
+}
+
+h2 {
+	text-transform: uppercase;
+}
+
+
+
+/* Layout */
+
+section, footer {
+	width: 91.666666666667vw;
+	margin: 0 auto 200px;
+}
+
+figcaption, footer > p {
+	font-size: 10pt;
+	width: 16.666666666667vw;
+	margin-bottom: 15px;
+}
+
+li {
+	margin-bottom: 45px;
+}
+
+
+
+.small {
+	margin-right: 4.1666666666667vw;
+	float: left;
+
+	img {
+		margin-bottom: 15px;
+		width: 16.666666666667vw;
+	}
+}
+
+.big {
+	img {
+		width: 70.833333333333vw;
+	}
+}
+
+
+
+/* Buttons */
+
+button {
+	font-family: 'Maria-Regular';
+	font-size: 18pt;
+	font-weight: normal;
+
+	padding: 15px;
+	background: white;
+	border: 1px solid black;
+}
+
+
+
+
+/* =====  3 Specific Rules & Definitions  =================================== */
+
+/* -----  3.1 header  ------------------------------------------------------- */
+
+body > header {
+	margin-bottom: 200px;
+}
+
+
+.ticker {
+	width: 100vw;
+	overflow: hidden;
+	margin-bottom: 40px;
+	padding-top: 20px;
+
+	font-size: 38pt;
+	font-weight: normal;
+}
+
+
+
+
+/* CSS-based Ticker*/
+
+$duration: 25s;
+
+@-webkit-keyframes ticker {
+  0% {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    visibility: visible;
+  }
+
+  100% {
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+  }
+}
+
+@keyframes ticker {
+	0% {
+	-webkit-transform: translate3d(0, 0, 0);
+	transform: translate3d(0, 0, 0);
+	visibility: visible;
+	}
+
+	100% {
+	-webkit-transform: translate3d(-100%, 0, 0);
+	transform: translate3d(-100%, 0, 0);
+	}
+}
+
+.ticker-wrap {
+	width: 100%;
+	overflow: hidden;
+	padding-left: 100%;  // offset items to begin
+}
+
+.ticker {
+	font-size: 38pt;
+	font-weight: normal;
+
+	display: inline-block;
+	white-space: nowrap; // display items in a line
+	padding-right: 100%; // ensure items go before animations repeat (taken from parent due to inline-block)
+
+	-webkit-animation-iteration-count: infinite;
+	      animation-iteration-count: infinite;
+	-webkit-animation-timing-function: linear;
+	      animation-timing-function: linear;
+	-webkit-animation-name: ticker;
+	     animation-name: ticker;
+	-webkit-animation-duration: $duration;
+	      animation-duration: $duration;
+	}
+
+.logo {
+	h1 {
+		padding-left: 4.1666666666667%;
+	}
+}
+
+
+
+
+
+/* -----  3.2 Work  --------------------------------------------------------- */
+.work {
+	header {
+		&:hover > .counter {
+			display: block;
+		}
+
+		width: 37.5vw;
+		margin-left: 20.833333333333vw;
+		margin-bottom: 50px;
+		display: flex;
+
+		h2 {
+			width: 12.5vw;
+			margin-right: 12.5vw;
+		}
+
+		.counter {
+			display: none;
+		}
+	}
+
+	.small {
+		position: -webkit-sticky;
+	    position: sticky;
+	    top: 20px;
+	}
+}
+
+.images {
+	display: none;
+}
+
+.work li:last-child {
+	.images {
+		display: block;
+	}
+}
+
+
+
+
+/* -----  3.3 Publication  -------------------------------------------------- */
+.clear, button {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+.publication {
+	.small {
+		margin-bottom: 40px;
+	}
 }
